@@ -1,0 +1,11 @@
+# Ignore compiled object files
+*.o
+*.out
+*.exe
+
+# Ignore test executables
+test
+main
+
+# Ignore editor temp files
+*.swp

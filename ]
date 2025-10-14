@@ -263,37 +263,12 @@ ABC
 ABCD
 ABCDE
 */
+
 void right_angled_alphabets(int n) {
-  string alphabets[5] = {"A", "B", "C", "D", "E"};
-  for (int i = 1; i <= n; i++) {
-    for (int j = 0; j < i; j++) {
-      // cout << alphabets[j];
-      cout << char('A' + j); 
-    }
-    cout << "\n";
+  for (int i = 0; i < n; i++) {
+    cout << i;
   }
 }
-
-// Pattern 15
-/*
-ABCDE
-ABCD 
-ABC 
-AB 
-A
-*/
-void reverse_right_angled_alphabets(int n) {
-  for (int i = n; i > 0; i--) {
-    // for (int j = i - 1; j >= 0; j--) {
-    //   cout << char('A' + j);
-    // }
-    for (int j = 0; j <= i - 1; j++) {
-      cout << char('A' + j);
-    }
-    cout << "\n";
-  }
-}
-
 
 int main() {
   int n;
@@ -317,8 +292,7 @@ int main() {
   // binary_left_triangle_assignment(n);
   // hollow(n);
   // right_angled_triangular_number_pattern(n);
-  // right_angled_alphabets(n);
-  reverse_right_angled_alphabets(n);
+  right_angled_alphabets(n);
 }
 
 
