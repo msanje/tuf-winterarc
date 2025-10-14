@@ -294,6 +294,103 @@ void reverse_right_angled_alphabets(int n) {
   }
 }
 
+// Pattern 16
+void right_alphabets(int n) {
+  for (int i = 0; i < n; i++) {
+    // cout << "i: " << i << "\n";
+    for (int j = 0; j <= i; j++) {
+      cout << char('A' + i); 
+    } 
+    cout << "\n";
+  }
+}
+
+// Pattern 17 - INCOMPLETE
+void alphabets_triangle(int n) {
+  for (int i = 1; i <= n; i++) {
+    // left space
+    for (int i = n - 1; i >= 0; i--) {
+      cout << "* ";
+    } 
+
+    // 1, 3, 4, 7... is what we want from for loop j
+    for (int j = 1; j < 2 * n + 1; j++) {
+      // cout << "j: " << j << " ";
+    }
+
+    // right space
+    for (int i = n - 1; i >= 0; i--) {
+      cout << "* ";
+    }
+
+    cout << "\n";
+
+  }
+}
+
+// Pattern 18
+/*
+E
+D E
+C D E
+B C D E
+A B C D E
+*/
+void reverse_right_alphabets(int n) {
+  for (int i = n - 1; i >= 0; i--) {
+    for (int j = i; j < n; j++) {
+      cout << char('A' + j) << " ";
+    }
+    cout << "\n";
+  }
+}
+
+
+// Pattern 19 - INCOMPLETE
+void diamond_in_the_middle(int n) { 
+  for (int i = 1; i <= n; i++) {
+    cout << string(n - i, '*');
+    cout << string(2 * i - 1, ' ');
+    cout << string(n - i, '*');
+    cout << "\n";
+  }
+  for (int i = n; i > 0; i--) {
+    cout << string(n - i, '*');
+    cout << string(2 * i - 1, ' ');
+    cout << string(n - i, '*');
+    cout << "\n";
+  }
+}
+
+
+// Pattern 20 - INCOMPLETE
+void patter_twenty(int n) {
+
+}
+
+
+// Pattern 21 - INCOMPLETE
+/*
+* * * * 
+*     *
+*     *
+* * * * 
+*/
+void square_of_stars(int n) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      cout << "*" << " ";
+    }
+    cout << "\n";
+  }
+}
+
+
+// Pattern 22 - INCOMPLETE
+void square_of_nums(int n) {
+
+}
+
 
 int main() {
   int n;
@@ -318,10 +415,17 @@ int main() {
   // hollow(n);
   // right_angled_triangular_number_pattern(n);
   // right_angled_alphabets(n);
-  reverse_right_angled_alphabets(n);
+  // reverse_right_angled_alphabets(n);
+  // right_alphabets(n);
+  // alphabets_triangle(n);
+  // reverse_right_alphabets(n);
+  // diamond_in_the_middle(n);
+  // square_of_stars(n);
+  square_of_nums(n);
 }
 
 
 
 
 
+kkkkk
