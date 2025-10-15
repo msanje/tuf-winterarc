@@ -80,6 +80,13 @@ void centered_pyramid(int n) {
 
 
 // Pattern 7 - with all for loops 
+/*
+    *
+   ***
+  *****
+ *******
+*********
+*/
 void centered_pyramid_with_nested_loops(int n) {
   for (int i = 0; i < n; i++) {
     // space
@@ -305,27 +312,73 @@ void right_alphabets(int n) {
   }
 }
 
-// Pattern 17 - INCOMPLETE
-void alphabets_triangle(int n) {
-  for (int i = 1; i <= n; i++) {
-    // left space
-    for (int i = n - 1; i >= 0; i--) {
-      cout << "* ";
-    } 
+// Pattern 17 - REVISION 
+/*
+   A
+  ABA
+ ABCBA
+ABCDCBA
 
-    // 1, 3, 4, 7... is what we want from for loop j
-    for (int j = 1; j < 2 * n + 1; j++) {
-      // cout << "j: " << j << " ";
+observation:
+[3, 1, 3] -> 7
+[2, 3, 2] -> 7
+[1, 5, 1] -> 7
+[0, 7, 0] -> 7
+*/
+void alphabets_triangle(int n) {
+  // this gives us 0, 1, 2, 3
+  for (int i = 0; i < n; i++) {
+    // for left space
+    for (int j = 0; j < n - i - 1; j++) {
+      cout << "*";
     }
 
-    // right space
-    for (int i = n - 1; i >= 0; i--) {
-      cout << "* ";
+    // for alphabet
+    char ch = 'A'; 
+    int breakpoint = (2*i+1) / 2;
+    for (int j = 1; j <= 2 * i + 1; j++) {
+      // cout << "j: " << j << "\n";
+      cout << ch; 
+      if (j <= breakpoint) ch++;
+      else ch--;
+    }
+
+    // for right space
+    for (int j = 0; j < n - i - 1; j++) {
+      cout << "*";
     }
 
     cout << "\n";
+  } 
+}
 
-  }
+// TODO
+/*
+ABCDCBA
+ ABCBA
+  ABA
+   A
+*/
+void reverse_alphabets_triangle(int n) {
+  for (int i = n - 1; i >= 0; i--) {
+    cout << "i: " << i;
+    // for left space
+    for (int i = n - 1; i >= 0; i--) {
+      cout << " ";
+    }
+
+    // for alphabet
+    for (int j = 1; j < n + i; j++) {
+      cout << char('A' + i);
+    }
+
+    // for right space
+    for (int i = n - 1; i >= 0; i--) {
+      cout << " ";
+    }
+
+    cout << "\n";
+  } 
 }
 
 // Pattern 18
@@ -346,50 +399,110 @@ void reverse_right_alphabets(int n) {
 }
 
 
-// Pattern 19 - INCOMPLETE
+// Pattern 19 - REVISION
+/*
+**********
+****  ****
+***    ***
+**      **
+*        *
+*        *
+**      **
+***    ***
+****  ****
+**********
+*/
 void diamond_in_the_middle(int n) { 
   for (int i = 1; i <= n; i++) {
-    cout << string(n - i, '*');
+    cout << string(n - i + 1, '*');
     cout << string(2 * i - 1, ' ');
-    cout << string(n - i, '*');
+    cout << string(n - i + 1, '*');
     cout << "\n";
   }
   for (int i = n; i > 0; i--) {
-    cout << string(n - i, '*');
+    cout << string(n - i + 1, '*');
     cout << string(2 * i - 1, ' ');
-    cout << string(n - i, '*');
+    cout << string(n - i + 1, '*');
     cout << "\n";
   }
 }
 
 
-// Pattern 20 - INCOMPLETE
-void patter_twenty(int n) {
-
+// Pattern 20 - REVISION.  
+/*
+*        *
+**      **
+***    ***
+****  ****
+**********
+****  ****
+***    ***
+**      **
+*        *
+*/
+void pattern_twenty(int n) {
+  for (int i = n; i > 0; i--) {
+    cout << string(n - i + 1, '*');
+    cout << string(2 * i - 1, ' ');
+    cout << string(n - i + 1, '*');
+    cout << "\n";
+  }
+  for (int i = 2; i <= n; i++) {
+    cout << string(n - i + 1, '*');
+    cout << string(2 * i - 1, ' ');
+    cout << string(n - i + 1, '*');
+    cout << "\n";
+  }
 }
 
 
-// Pattern 21 - INCOMPLETE
+// Pattern 21
 /*
+
 * * * * 
 *     *
 *     *
 * * * * 
+
 */
 void square_of_stars(int n) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      cout << "*" << " ";
+      if (i == 0 || i == n - 1 || j == 0 || j == n - 1 ) {
+        cout << "*";
+      } else{
+        cout << " ";
+      }
     }
     cout << "\n";
   }
 }
 
 
-// Pattern 22 - INCOMPLETE
+// Pattern 22 - REVISION 
+/*
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+*/
 void square_of_nums(int n) {
+  for (int i = 0; i < 2 * n - 1; i++) {
+    for (int j = 0; j < 2 * n - 1; j++) {
+      int top = i;
+      int left = j;
+      int right = (2 * n - 2) - j;
+      int down = (2 * n - 2) - i;
 
-}
+      cout << (n - min(min(top, down), min(left, right))) << " ";
+    }
+    cout << "\n";
+  }
+} 
+
 
 
 int main() {
@@ -418,8 +531,10 @@ int main() {
   // reverse_right_angled_alphabets(n);
   // right_alphabets(n);
   // alphabets_triangle(n);
+  // reverse_alphabets_triangle(n);
   // reverse_right_alphabets(n);
   // diamond_in_the_middle(n);
+  pattern_twenty(n); 
   // square_of_stars(n);
   square_of_nums(n);
 }
@@ -428,4 +543,3 @@ int main() {
 
 
 
-kkkkk
