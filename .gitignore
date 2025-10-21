@@ -1,11 +1,16 @@
-# Ignore compiled object files
+
+# Compiled object files
 *.o
 *.out
 *.exe
 
-# Ignore test executables
+# Editor temp files
+*.swp
+.DS_Store
+.vscode/
+.idea/
+
+# Test executables
 test
 main
 
-# Ignore editor temp files
-*.swp
